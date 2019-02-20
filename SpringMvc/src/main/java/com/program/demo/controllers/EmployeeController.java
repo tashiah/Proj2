@@ -3,6 +3,8 @@ package com.program.demo.controllers;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,9 @@ import com.program.demo.dao.EmployeeDAO;
 @Controller
 public class EmployeeController {
 	
+	@Autowired
+	EmployeeDAO employeeDAO;
+	
 	@GetMapping(value = "/register")
     public String openForm(Model model)
     {
@@ -23,11 +28,10 @@ public class EmployeeController {
          return "addEmployee";
     }
 	
-	@PostMapping
+	@PostMapping(value="/submit")
     public String setup(@ModelAttribute("employee") Employee employee)
     {	
-		//how to call the insert method of EmployeeDAO here???
-		
+	employeeDAO.insert(employee);
          return "success";
     }
 	
