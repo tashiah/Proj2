@@ -10,7 +10,7 @@
 
 <body>
 
-	<form:form method="post" modelAttribute="employee">
+	<form:form method="post" action="submit" modelAttribute="employee">
 	 <table>
 	 	 <tr>
             <td>Name:</td>
