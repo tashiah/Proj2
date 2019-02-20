@@ -25,7 +25,7 @@ public class EmployeeController {
     {
          Employee employee = new Employee();
          model.addAttribute("employee", employee);
-         return "addEmployee";
+         return "addEmp";
     }
 	
 	@PostMapping(value="/submit")
